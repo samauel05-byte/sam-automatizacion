@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Programa de Referidos | Paulino Sosa Asesores &amp; Consultores</title>
+<meta name="description" content="Únete a nuestra red de referidores y obtén beneficios al promover nuestros servicios de contabilidad, finanzas, fiscalidad y administración.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site">
+  <div class="nav-wrap">
+    <a href="index.html" class="logo"><span class="mark">PS</span> PAULINO SOSA</a>
+    <nav class="main-nav">
+      <a href="index.html">Inicio</a>
+      <a href="servicios.html">Servicios</a>
+      <a href="nosotros.html">Nosotros</a>
+      <a href="preguntas-frecuentes.html">Preguntas Frecuentes</a>
+      <a href="referidos.html" class="active">Referidos</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="https://wa.me/18496079129" class="btn btn-primary" target="_blank" rel="noopener">WhatsApp</a>
+      <button class="nav-toggle" aria-label="Abrir menú">☰</button>
+    </div>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="breadcrumb">Inicio / Programa de Referidos</div>
+    <h1>Programa de Referidos</h1>
+    <p>Únete a nuestra red de referidores y obtén beneficios al promover nuestros servicios. Completa el formulario y nos pondremos en contacto contigo.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Cómo funciona</span>
+      <h2>Recomienda y gana</h2>
+    </div>
+    <div class="grid grid-3">
+      <div class="card"><div class="icon">01</div><h3>Regístrate</h3><p>Completa la información preliminar y un asesor te contactará para continuar.</p></div>
+      <div class="card"><div class="icon">02</div><h3>Comparte nuestros servicios</h3><p>Recomienda nuestros servicios de contabilidad, finanzas, fiscalidad y administración a tu red de contactos.</p></div>
+      <div class="card"><div class="icon">03</div><h3>Recibe tu beneficio</h3><p>Obtén beneficios cada vez que un referido contrata nuestros servicios.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section-alt">
+  <div class="container" style="max-width:680px">
+    <div class="form-card">
+      <h3 style="margin-bottom:6px">Formulario de solicitud</h3>
+      <p style="margin-bottom:24px">Describe brevemente tu experiencia, red de contactos o cómo planeas promover nuestros servicios.</p>
+      <form id="referral-form">
+        <div class="form-row">
+          <div class="field">
+            <label for="ref-nombre">Nombre completo *</label>
+            <input type="text" id="ref-nombre" name="nombre" required>
+          </div>
+          <div class="field">
+            <label for="ref-telefono">Teléfono / WhatsApp *</label>
+            <input type="tel" id="ref-telefono" name="telefono" required>
+          </div>
+        </div>
+        <div class="field">
+          <label for="ref-servicios">¿Qué servicios te interesa promover? *</label>
+          <select id="ref-servicios" name="servicios" required>
+            <option value="">Selecciona una opción</option>
+            <option>Constitución de Empresas &amp; ONG</option>
+            <option>Outsourcing Contable y Fiscal</option>
+            <option>Auditoría</option>
+            <option>Diseño Gráfico e Identidad de Marca</option>
+            <option>Habilitación de Centros de Salud</option>
+            <option>Varios / Todos</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="ref-experiencia">Describe tu experiencia o red de contactos</label>
+          <textarea id="ref-experiencia" name="experiencia" placeholder="Describe brevemente tu experiencia, red de contactos o cómo planeas promover nuestros servicios..."></textarea>
+        </div>
+        <div class="field" style="display:flex;gap:10px;align-items:flex-start">
+          <input type="checkbox" id="ref-acepto" name="acepto" required style="width:auto;margin-top:4px">
+          <label for="ref-acepto" style="font-weight:400;color:var(--text-light)">Acepto ser contactado para la evaluación confidencial y entiendo que la publicación requiere revisión y aprobación previa.</label>
+        </div>
+        <button type="submit" class="btn btn-accent" style="width:100%;justify-content:center">Enviar solicitud</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer class="site" id="footer-placeholder"></footer>
+<a href="https://wa.me/18496079129" class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
+<script src="js/main.js"></script>
+<script src="js/footer.js"></script>
+<script>
+document.getElementById('referral-form').addEventListener('submit', function(e){
+  e.preventDefault();
+  const d = new FormData(this);
+  const text = `Hola, quiero unirme al programa de referidos.%0ANombre: ${d.get('nombre')}%0ATeléfono: ${d.get('telefono')}%0AServicios de interés: ${d.get('servicios')}%0AExperiencia: ${d.get('experiencia')||'-'}`;
+  window.open(`https://wa.me/18496079129?text=${text}`, '_blank');
+});
+</script>
+</body>
+</html>
