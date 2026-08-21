@@ -25,6 +25,32 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', onScroll, { passive: true });
   }
 
+  const progressBar = document.createElement('div');
+  progressBar.className = 'scroll-progress';
+  document.body.appendChild(progressBar);
+  const updateProgress = () => {
+    const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
+    progressBar.style.width = `${pct}%`;
+  };
+  updateProgress();
+  window.addEventListener('scroll', updateProgress, { passive: true });
+  window.addEventListener('resize', updateProgress);
+
+  const heroCard = document.querySelector('.hero-card');
+  const prefersReducedMotionTilt = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (heroCard && window.matchMedia('(pointer: fine)').matches && !prefersReducedMotionTilt) {
+    heroCard.addEventListener('mousemove', (e) => {
+      const rect = heroCard.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+      heroCard.style.transform = `perspective(800px) rotateY(${x * 10}deg) rotateX(${-y * 10}deg) translateY(-4px)`;
+    });
+    heroCard.addEventListener('mouseleave', () => {
+      heroCard.style.transform = '';
+    });
+  }
+
   const revealSelectors = '.card, .mv-card, .plan-card, .team-card, .faq-item, .contact-info-item, .section-head, .cta-band';
   const revealEls = document.querySelectorAll(revealSelectors);
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
