@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  const revealSelectors = '.card, .mv-card, .plan-card, .team-card, .faq-item, .contact-info-item, .section-head, .cta-band';
+  const revealSelectors = '.card, .mv-card, .plan-card, .team-card, .faq-item, .contact-info-item, .section-head, .cta-band, .example-box';
   const revealEls = document.querySelectorAll(revealSelectors);
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (revealEls.length && 'IntersectionObserver' in window && !prefersReducedMotion) {
