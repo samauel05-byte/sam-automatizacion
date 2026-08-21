@@ -402,3 +402,32 @@ footer.site p{color:#94a3b8;font-size:.9rem}
 .mt-lg{margin-top:48px}
 .badge-list{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
 .badge-list span{background:var(--accent-soft);color:var(--teal-dark);font-size:.8rem;font-weight:600;padding:6px 14px;border-radius:999px}
+
+/* Service examples */
+.example-box{
+  max-width:520px;margin:40px auto 0;background:#fff;border:1px dashed rgba(124,58,237,.35);
+  border-radius:var(--radius);padding:22px 24px;
+}
+.example-label{
+  display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:.7rem;font-weight:700;
+  letter-spacing:.06em;text-transform:uppercase;color:var(--teal);background:var(--accent-soft);
+  padding:4px 10px;border-radius:6px;margin-bottom:14px;
+}
+.example-invoice{font-family:var(--mono);font-size:.85rem}
+.ei-row{display:flex;justify-content:space-between;gap:12px;padding:7px 0;border-bottom:1px dashed var(--border);color:var(--text-light)}
+.ei-row span:first-child{color:var(--navy);font-weight:600}
+.ei-status{display:flex;align-items:center;gap:6px;margin-top:12px;color:var(--teal-dark);font-weight:600;font-size:.82rem}
+.example-flow{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:10px;font-family:var(--mono);font-size:.82rem}
+.ef-chip{background:var(--accent-soft);color:var(--teal-dark);font-weight:600;padding:8px 14px;border-radius:8px}
+.ef-arrow{color:var(--teal);font-weight:700}
+.example-mail{display:flex;flex-direction:column;gap:10px;font-family:var(--mono);font-size:.85rem}
+.em-row{display:flex;align-items:center;gap:10px;color:var(--navy);font-weight:600;padding:8px 10px;background:var(--accent-soft);border-radius:8px}
+.em-row svg{flex-shrink:0;color:var(--teal)}
+.browser-mock{border:1px solid var(--border);border-radius:10px;overflow:hidden}
+.browser-bar{display:flex;align-items:center;gap:6px;padding:9px 12px;background:#f1f0fa;border-bottom:1px solid var(--border)}
+.browser-url{margin-left:8px;font-family:var(--mono);font-size:.75rem;color:var(--text-light);background:#fff;padding:3px 10px;border-radius:5px;flex:1}
+.browser-body{padding:16px}
+.bm-block{border-radius:6px;background:linear-gradient(90deg,var(--accent-soft),var(--border))}
+.bm-hero{height:44px;margin-bottom:10px}
+.bm-row{height:10px;margin-bottom:8px}
+.bm-row.short{width:60%;margin-bottom:0}
