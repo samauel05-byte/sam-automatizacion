@@ -18,6 +18,32 @@ document.addEventListener('DOMContentLoaded', () => {
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
+  const header = document.querySelector('header.site');
+  if (header) {
+    const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 8);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+  }
+
+  const revealSelectors = '.card, .mv-card, .plan-card, .team-card, .faq-item, .contact-info-item, .section-head, .cta-band';
+  const revealEls = document.querySelectorAll(revealSelectors);
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (revealEls.length && 'IntersectionObserver' in window && !prefersReducedMotion) {
+    revealEls.forEach((el, i) => {
+      el.classList.add('reveal');
+      el.style.transitionDelay = `${(i % 4) * 80}ms`;
+    });
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(el => observer.observe(el));
+  }
+
   const form = document.getElementById('contact-form');
   if (form) {
     form.addEventListener('submit', (e) => {
