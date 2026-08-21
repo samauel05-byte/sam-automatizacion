@@ -68,6 +68,9 @@ header.site{
   width:38px;height:38px;border-radius:9px;background:linear-gradient(135deg,var(--navy),var(--teal));
   display:flex;align-items:center;justify-content:center;color:var(--accent);font-weight:800;font-size:1rem;
 }
+.logo img,.footer-logo img{border-radius:50%;object-fit:cover;display:block;flex-shrink:0}
+.logo img{width:42px;height:42px}
+.footer-logo img{width:34px;height:34px}
 nav.main-nav{display:flex;gap:32px}
 nav.main-nav a{font-weight:500;font-size:.95rem;color:var(--text);transition:color .2s}
 nav.main-nav a:hover,nav.main-nav a.active{color:var(--teal)}

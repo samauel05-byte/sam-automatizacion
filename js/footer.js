@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
   <div class="container">
     <div class="footer-grid">
       <div>
-        <div class="footer-logo"><span class="mark" style="width:34px;height:34px;font-size:.85rem">SA</span> SAM AUTOMATIZACIÓN</div>
+        <div class="footer-logo"><img src="assets/logo.png" alt="Sam Automatización" width="34" height="34"> SAM AUTOMATIZACIÓN</div>
         <p>Soluciones tecnológicas para digitalizar y automatizar la operación de tu negocio.</p>
         <div class="social-row">
           <a href="https://www.facebook.com/share/18bCMAy1KV/?mibextid=wwXIfr" aria-label="Facebook" target="_blank" rel="noopener">f</a>
