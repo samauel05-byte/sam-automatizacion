@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const servicio = data.get('servicio') || '';
       const mensaje = data.get('mensaje') || '';
       const text = `Hola, soy ${nombre}.%0AServicio de interés: ${servicio}%0ATeléfono: ${telefono}%0AMensaje: ${mensaje}`;
-      window.open(`https://wa.me/18496079129?text=${text}`, '_blank');
+      window.open(`https://wa.me/18099863977?text=${text}`, '_blank');
     });
   }
 });
