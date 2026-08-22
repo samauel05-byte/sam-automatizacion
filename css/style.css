@@ -397,7 +397,6 @@ footer.site p{color:#94a3b8;font-size:.9rem}
 .plan-price .from{display:block;font-size:.68rem;color:var(--text-light);text-transform:uppercase;letter-spacing:.06em;font-weight:600}
 .plan-price .amount{display:block;font-size:1.7rem;font-weight:800;color:var(--navy);font-family:var(--mono)}
 .plan-price .period{display:block;font-size:.72rem;color:var(--teal-dark);text-transform:uppercase;letter-spacing:.05em;font-weight:600}
-.plan-maint{font-size:.78rem;color:var(--text-light);font-weight:600;background:var(--accent-soft);display:inline-block;padding:4px 10px;border-radius:6px;margin-top:4px}
 .plan-card ul{margin:18px 0;flex:1}
 .plan-card ul li{font-size:.88rem;color:var(--text-light);padding:7px 0;display:flex;gap:8px}
 .plan-card ul li::before{content:"✓";color:var(--teal);font-weight:700}
