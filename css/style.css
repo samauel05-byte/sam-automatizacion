@@ -523,7 +523,8 @@ header.site.scrolled{background:rgba(2,4,10,.94);box-shadow:0 14px 36px -24px #0
 .hero h1{font-size:clamp(2.65rem,6vw,5rem);letter-spacing:-.045em;font-weight:700;line-height:1.03}
 .hero .lead{margin:24px auto 0;max-width:650px;color:#8794aa;font-size:1rem}
 .hero-actions{justify-content:center;margin-top:34px}
-.robot-scene{--robot-x:0px;--robot-y:0px;--eye-x:0px;--eye-y:0px;--robot-turn:0deg;position:absolute;right:max(-42px,calc((100vw - 1440px)/2));bottom:4%;width:clamp(260px,29vw,430px);z-index:0;opacity:.42;pointer-events:none;transform:translate3d(var(--robot-x),var(--robot-y),0) rotate(var(--robot-turn));transition:transform .32s cubic-bezier(.2,.8,.2,1);filter:drop-shadow(0 22px 38px rgba(20,85,245,.18))}
+.robot-scene{--robot-x:0px;--robot-y:0px;--eye-x:0px;--eye-y:0px;--robot-turn:0deg;position:fixed;right:-42px;bottom:4%;width:clamp(250px,25vw,380px);z-index:8;opacity:.18;pointer-events:none;transform:translate3d(var(--robot-x),var(--robot-y),0) rotate(var(--robot-turn));transition:transform .32s cubic-bezier(.2,.8,.2,1),opacity .25s ease;filter:drop-shadow(0 22px 38px rgba(20,85,245,.18))}
+.robot-scene.robot-home{opacity:.3}
 .sam-robot{display:block;width:100%;height:auto;overflow:visible;animation:robotWalk 3.2s ease-in-out infinite}
 .robot-shadow{fill:rgba(0,0,0,.6);filter:blur(5px);animation:robotShadow 3.2s ease-in-out infinite}
 .robot-head,.robot-torso,.robot-arm rect,.robot-arm circle,.robot-leg rect{fill:#071027;stroke:#2f6bff;stroke-width:3}
@@ -649,7 +650,8 @@ footer.site ul li a:hover{color:#69e7f2}
 
 @media (max-width:860px){
   nav.main-nav{background:rgba(2,4,10,.98);border-bottom-color:rgba(255,255,255,.07)}
-  .robot-scene{right:-84px;bottom:12%;width:310px;opacity:.25}
+  .robot-scene{right:-84px;bottom:12%;width:310px;opacity:.16}
+  .robot-scene.robot-home{opacity:.23}
   .robot-work-panel{display:none}
 }
 @media (max-width:640px){
@@ -663,7 +665,8 @@ footer.site ul li a:hover{color:#69e7f2}
   .cami-examples{grid-template-columns:1fr}
   .cami-flow{justify-content:flex-start}
   .ei-row{align-items:flex-start;flex-direction:column}
-  .robot-scene{right:-112px;bottom:18%;width:280px;opacity:.2}
+  .robot-scene{right:-112px;bottom:18%;width:280px;opacity:.14}
+  .robot-scene.robot-home{opacity:.2}
 }
 @media (prefers-reduced-motion:reduce){
   .sam-robot,.robot-shadow,.robot-antenna-light,.robot-core,.robot-arm-left,.robot-arm-right,.robot-leg-left,.robot-leg-right,.robot-work-panel,.robot-work-panel span{animation:none !important}
