@@ -600,6 +600,10 @@ p{color:var(--text-light)}
 .field input:focus,.field select:focus,.field textarea:focus{border-color:#2f6bff;box-shadow:0 0 0 3px rgba(47,107,255,.16)}
 .cta-band{background:radial-gradient(circle at 50% 0,rgba(21,214,232,.12),transparent 40%),linear-gradient(145deg,#07122a,#040811);border:1px solid rgba(255,255,255,.08);box-shadow:0 30px 80px -50px rgba(21,214,232,.35)}
 .cta-band p{color:#8794aa}
+.privacy-callout{max-width:900px;margin:34px auto 0;padding:24px 26px;display:flex;align-items:flex-start;gap:18px;background:linear-gradient(145deg,rgba(21,214,232,.07),rgba(20,85,245,.04));border:1px solid rgba(21,214,232,.18);border-radius:16px}
+.privacy-icon{width:52px;height:52px;display:grid;place-items:center;flex-shrink:0;border-radius:13px;background:rgba(21,214,232,.08);color:#69e7f2}
+.privacy-callout h3{font-size:1.02rem;margin-bottom:5px}
+.privacy-callout p{font-size:.9rem}
 footer.site{background:#010207;border-top:1px solid rgba(255,255,255,.06)}
 footer.site p,footer.site ul li,footer.site .footer-bottom{color:#657087}
 footer.site ul li a:hover{color:#69e7f2}
@@ -622,4 +626,5 @@ footer.site ul li a:hover{color:#69e7f2}
   .hero h1{font-size:clamp(2.5rem,13vw,3.5rem)}
   .page-hero{padding:82px 0 64px}
   .card,.plan-card{padding:26px 22px}
+  .privacy-callout{flex-direction:column;padding:22px}
 }
