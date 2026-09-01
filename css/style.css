@@ -611,8 +611,6 @@ p{color:var(--text-light)}
 .cami-core{background:linear-gradient(135deg,rgba(47,107,255,.28),rgba(21,214,232,.18));color:#fff;border-color:rgba(21,214,232,.3)}
 .status-pill{display:inline-flex;padding:4px 9px;border-radius:999px;background:rgba(21,214,232,.09);color:#69e7f2;font-size:.7rem;font-weight:700;white-space:nowrap}
 .status-pill.warning{background:rgba(245,158,11,.09);color:#fbbf24}
-.service-price{display:inline-flex;margin-top:14px;padding:4px 10px;border-radius:999px;background:rgba(21,214,232,.08);color:#69e7f2;font-family:var(--mono);font-size:.74rem;font-weight:700}
-.service-price + .link{display:block}
 footer.site{background:#010207;border-top:1px solid rgba(255,255,255,.06)}
 footer.site p,footer.site ul li,footer.site .footer-bottom{color:#657087}
 footer.site ul li a:hover{color:#69e7f2}
