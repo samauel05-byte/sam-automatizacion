@@ -4,8 +4,8 @@
   "description": "Soluciones tecnológicas para digitalizar y automatizar negocios.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#f5f8fc",
-  "theme_color": "#061947",
+  "background_color": "#02040a",
+  "theme_color": "#02040a",
   "icons": [
     {
       "src": "/assets/apple-touch-icon.png",
