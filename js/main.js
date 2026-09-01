@@ -55,6 +55,40 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', onScroll, { passive: true });
   }
 
+  const robotScene = document.querySelector('.robot-scene');
+  const robotHero = robotScene?.closest('.hero');
+  const robotReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (robotScene && robotHero && !robotReducedMotion) {
+    let robotFrame = 0;
+    const moveRobot = (clientX, clientY) => {
+      const rect = robotHero.getBoundingClientRect();
+      const x = Math.max(-1, Math.min(1, ((clientX - rect.left) / rect.width - 0.5) * 2));
+      const y = Math.max(-1, Math.min(1, ((clientY - rect.top) / rect.height - 0.5) * 2));
+      cancelAnimationFrame(robotFrame);
+      robotFrame = requestAnimationFrame(() => {
+        robotScene.style.setProperty('--robot-x', `${x * 24}px`);
+        robotScene.style.setProperty('--robot-y', `${y * 15}px`);
+        robotScene.style.setProperty('--eye-x', `${x * 4}px`);
+        robotScene.style.setProperty('--eye-y', `${y * 3}px`);
+        robotScene.style.setProperty('--robot-turn', `${x * 4}deg`);
+      });
+    };
+    robotHero.addEventListener('pointermove', (event) => moveRobot(event.clientX, event.clientY), { passive: true });
+    robotHero.addEventListener('pointerdown', (event) => {
+      moveRobot(event.clientX, event.clientY);
+      robotScene.classList.remove('robot-react');
+      void robotScene.offsetWidth;
+      robotScene.classList.add('robot-react');
+    }, { passive: true });
+    robotHero.addEventListener('pointerleave', () => {
+      robotScene.style.setProperty('--robot-x', '0px');
+      robotScene.style.setProperty('--robot-y', '0px');
+      robotScene.style.setProperty('--eye-x', '0px');
+      robotScene.style.setProperty('--eye-y', '0px');
+      robotScene.style.setProperty('--robot-turn', '0deg');
+    });
+  }
+
   const progressBar = document.createElement('div');
   progressBar.className = 'scroll-progress';
   document.body.appendChild(progressBar);
