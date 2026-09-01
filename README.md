@@ -7,7 +7,7 @@ Sitio web de **Sam Automatización**, empresa de tecnología y automatización p
 ## Servicios
 
 - **Facturador Electrónico** — Emisión y gestión de comprobantes fiscales electrónicos (e-CF).
-- **NALA — Lectura inteligente de facturas** — Procesa fotos y archivos PDF, identifica los datos de los comprobantes y genera los formatos DGII 606, 607 e IR-17 en Excel y TXT.
+- **NALA** — Procesa fotos y archivos PDF, identifica los datos de los comprobantes y genera los formatos DGII 606, 607 e IR-17 en Excel y TXT.
 - **Servidor de Dominio** — Registro, configuración y administración de dominios.
 - **Servidor de Correo** — Correos profesionales con dominio propio.
 - **Creación de Páginas Web** — Diseño y desarrollo de sitios funcionales a la medida.
