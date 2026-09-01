@@ -1,0 +1,16 @@
+{
+  "name": "SAM Automatización",
+  "short_name": "SAM",
+  "description": "Soluciones tecnológicas para digitalizar y automatizar negocios.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f5f8fc",
+  "theme_color": "#061947",
+  "icons": [
+    {
+      "src": "/assets/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}

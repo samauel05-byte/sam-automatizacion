@@ -2,18 +2,48 @@ document.addEventListener('DOMContentLoaded', () => {
   const toggle = document.querySelector('.nav-toggle');
   const nav = document.querySelector('.main-nav');
   if (toggle && nav) {
-    toggle.addEventListener('click', () => nav.classList.toggle('open'));
-    nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => nav.classList.remove('open')));
+    const setMenu = (open) => {
+      nav.classList.toggle('open', open);
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+      document.body.classList.toggle('menu-open', open);
+    };
+    toggle.addEventListener('click', () => setMenu(!nav.classList.contains('open')));
+    nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && nav.classList.contains('open')) {
+        setMenu(false);
+        toggle.focus();
+      }
+    });
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 860) setMenu(false);
+    });
   }
 
-  document.querySelectorAll('.faq-item .faq-q').forEach(btn => {
+  document.querySelectorAll('.faq-item .faq-q').forEach((btn, index) => {
+    const answer = btn.nextElementSibling;
+    const answerId = `faq-answer-${index + 1}`;
+    answer.id = answerId;
+    btn.setAttribute('aria-controls', answerId);
+    btn.setAttribute('aria-expanded', String(btn.closest('.faq-item').classList.contains('open')));
     btn.addEventListener('click', () => {
       const item = btn.closest('.faq-item');
       const wasOpen = item.classList.contains('open');
-      item.parentElement.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      item.parentElement.querySelectorAll('.faq-item').forEach(i => {
+        i.classList.remove('open');
+        i.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+      });
       if (!wasOpen) item.classList.add('open');
+      btn.setAttribute('aria-expanded', String(!wasOpen));
     });
   });
+
+  const whatsappButton = document.querySelector('.wa-float');
+  if (whatsappButton) {
+    whatsappButton.setAttribute('aria-label', 'Conversar por WhatsApp');
+    whatsappButton.innerHTML = '<svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor" aria-hidden="true"><path d="M20.5 3.5A11.8 11.8 0 0 0 1.9 17.7L.2 24l6.5-1.7A11.8 11.8 0 0 0 24 11.8a11.7 11.7 0 0 0-3.5-8.3ZM12.1 21a9.8 9.8 0 0 1-5-1.4l-.4-.2-3.8 1 1-3.7-.3-.4A9.8 9.8 0 1 1 12.1 21Zm5.4-7.3c-.3-.1-1.8-.9-2-.9-.3-.1-.5-.1-.7.2-.2.3-.8.9-1 1.1-.2.2-.4.2-.7.1-1.7-.8-2.8-1.5-4-3.4-.3-.5.3-.5.8-1.5.1-.2 0-.4 0-.6l-.9-2c-.2-.5-.5-.4-.7-.4h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.2-1.2 2.9 0 1.7 1.2 3.3 1.4 3.6.2.2 2.4 3.7 5.9 5.2.8.4 1.5.6 2 .7.8.3 1.6.2 2.2.1.7-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.2-.4-.3-.7-.4Z"/></svg>';
+  }
 
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
@@ -74,13 +104,26 @@ document.addEventListener('DOMContentLoaded', () => {
   if (form) {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
+      const requiredFields = form.querySelectorAll('[required]');
+      requiredFields.forEach(field => field.setAttribute('aria-invalid', String(!field.validity.valid)));
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        form.querySelector(':invalid')?.focus();
+        return;
+      }
       const data = new FormData(form);
-      const nombre = data.get('nombre') || '';
-      const telefono = data.get('telefono') || '';
-      const servicio = data.get('servicio') || '';
-      const mensaje = data.get('mensaje') || '';
-      const text = `Hola, soy ${nombre}.%0AServicio de interés: ${servicio}%0ATeléfono: ${telefono}%0AMensaje: ${mensaje}`;
-      window.open(`https://wa.me/18099863977?text=${text}`, '_blank');
+      const nombre = String(data.get('nombre') || '').trim();
+      const telefono = String(data.get('telefono') || '').trim();
+      const servicio = String(data.get('servicio') || '').trim();
+      const mensaje = String(data.get('mensaje') || '').trim();
+      const text = `Hola, soy ${nombre}.\nServicio de interés: ${servicio}\nTeléfono: ${telefono}${mensaje ? `\nMensaje: ${mensaje}` : ''}`;
+      const url = new URL('https://wa.me/18099863977');
+      url.searchParams.set('text', text);
+      window.open(url.toString(), '_blank', 'noopener,noreferrer');
+    });
+    form.querySelectorAll('[required]').forEach(field => {
+      field.addEventListener('input', () => field.removeAttribute('aria-invalid'));
+      field.addEventListener('change', () => field.removeAttribute('aria-invalid'));
     });
   }
 });
